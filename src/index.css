@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Geist";
+  src: url("./assets/fonts/Geist.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+body {
+  font-family: Geist, system-ui, Arial, sans-serif;
+}
+
+@theme inline {
+  --color-pbg: var(--pbg);
+  --color-pfg: var(--pfg);
+  --color-sbg: var(--sbg);
+  --color-sfg: var(--sfg);
+  --color-bbg: var(--bbg);
+  --color-bfg: var(--bfg);
+}
+
+.dark {
+  --pbg: #08090a;
+  --pfg: #f7f8f8;
+  --sbg: rgba(40, 40, 44, 54.9%);
+  --sfg: #8a8f98;
+  --bbg: #f7f8f8;
+  --bfg: #08090a;
+}
