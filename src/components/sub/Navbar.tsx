@@ -16,7 +16,7 @@ const Navbar = () => {
   },[])
 
   return (
-    <nav className="flex justify-center items-center sticky top-0 gap-5 lg:gap-0 z-5 py-2">
+    <nav className="flex justify-center items-center sticky top-0 gap-5 lg:gap-0 z-5 py-4">
       {navItems.map((item, idx) => (
         <a
         key={idx}

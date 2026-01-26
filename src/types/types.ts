@@ -5,3 +5,11 @@ export interface ContainerProps {
 export interface MessageProps {
   content: string;
 }
+
+export interface ProjectCardProps {
+  title: string;
+  description: string;
+  imageURL: string;
+  githubURL: string;
+  technologies: string;
+}
