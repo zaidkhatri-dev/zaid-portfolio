@@ -6,12 +6,12 @@ const CTA = () => {
   return (
     <div className="mt-8">
       <h3 className="text-lg md:text-xl">Have a Project in mind?</h3>
-      
+
       <div className="flex items-center gap-2 mt-3">
         <Message content="Get in Touch"></Message>
         <Resume />
       </div>
-      
+
       <div className="flex items-center gap-3 mt-6">
         <motion.a
           whileHover={{ translateY: -6 }}
@@ -29,7 +29,7 @@ const CTA = () => {
         </motion.a>
         <motion.a
           whileHover={{ translateY: -6 }}
-          href="mailto:zaidkhatri.work@gmail.com"
+          href="mailto:zaidkhatri.work@gmail.com?subject=Work%20Opportunity&body=Hi%20Zaid,%0A%0AI%20came%20across%20your%20portfolio%20and%20would%20like%20to%20connect.%0A%0AThanks,"
           target="_blank"
         >
           <img height={26} width={26} src="gmail_icon.svg" alt="gmail" />

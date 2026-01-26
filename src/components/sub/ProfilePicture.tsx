@@ -3,7 +3,7 @@ import { Tooltip } from 'react-tooltip'
 
 const ProfilePicture = () => {
   return (
-    <div className="flex mt-10">
+    <div className="flex mt-12">
       <motion.div
         whileHover={{ scale: 1.08, borderColor: "#f7f8f8" }}
         className="w-30 h-30 md:w-32 md:h-32 rounded-full border-2 border-sfg relative bg-[url(pf_edited.png)] bg-cover bg-top"

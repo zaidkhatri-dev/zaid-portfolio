@@ -16,7 +16,7 @@ const Navbar = () => {
   },[])
 
   return (
-    <nav className="flex justify-center items-center sticky top-0 gap-5 lg:gap-0 z-5 py-3">
+    <nav className="flex justify-center items-center sticky top-0 gap-5 lg:gap-0 z-5 py-2">
       {navItems.map((item, idx) => (
         <a
         key={idx}
@@ -29,7 +29,7 @@ const Navbar = () => {
           <span className="group-hover:text-bfg relative transition-colors duration-300 ease-out">{item}</span>
         </a>
       ))}
-      {scrolled && (<div className="w-full h-full absolute inset-0 backdrop-blur-lg bg-black/30 rounded z-0" />)}
+      {scrolled && (<div className="w-full h-full absolute inset-0 backdrop-blur-lg bg-black/30 rounded z-0 pointer-events-none" />)}
     </nav>
   );
 };
