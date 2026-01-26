@@ -1,4 +1,4 @@
-import Message from "../buttons/Message";
+import Contact from "../buttons/Contact";
 import Resume from "../buttons/Resume";
 import { motion } from "motion/react";
 
@@ -8,7 +8,7 @@ const CTA = () => {
       <h3 className="text-lg md:text-xl">Have a Project in mind?</h3>
 
       <div className="flex items-center gap-2 mt-3">
-        <Message content="Get in Touch"></Message>
+        <Contact></Contact>
         <Resume />
       </div>
 

@@ -22,7 +22,7 @@ const Navbar = () => {
         key={idx}
           onMouseEnter={() => window.innerWidth >= 768 && setHovered(idx)}
           onMouseLeave={() => setHovered(null)}
-          href=""
+          href={`#${item}`}
           className="relative z-10 text-center lg:px-5 lg:py-2 group"
         >
           {hovered === idx && <motion.div layoutId="hover" className="absolute inset-0 w-full h-full bg-bbg rounded-full"></motion.div>}
