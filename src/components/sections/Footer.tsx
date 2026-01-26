@@ -1,5 +1,3 @@
-import React from 'react'
-
 const Footer = () => {
   return (
     <footer className='mt-40 mb-12 text-sfg text-sm md:text-[16px] flex flex-col items-center gap-2'>
