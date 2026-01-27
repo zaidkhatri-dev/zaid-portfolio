@@ -4,7 +4,7 @@ import CTA from '../sub/CTA'
 
 const Hero = () => {
   return (
-    <section>
+    <section id="Hero">
         <ProfilePicture></ProfilePicture>
         <Description></Description>
         <CTA></CTA>
