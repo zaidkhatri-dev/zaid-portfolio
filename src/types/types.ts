@@ -13,3 +13,7 @@ export interface ProjectCardProps {
   githubURL: string;
   technologies: string;
 }
+
+export interface SendMsgProps {
+  isAnimate: boolean;
+}

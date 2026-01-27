@@ -2,32 +2,32 @@ import type { ProjectCardProps } from "../../types/types"
 import ProjectCard from "../sub/ProjectCard"
 
 const ProjectArr: ProjectCardProps[] = [{
-    title: "Mock",
-    description: "Lorem ipsum dolor sit amet consectetur adipiscing elit quisque faucibus ex sapien vitae pellentesque sem.lorem5",
-    technologies: "React, Next, Express",
-    imageURL: "mockup.svg",
+    title: "AI Powered Inventory Management",
+    description: "A Software to manage Inventory - Items can be added using camera, Graphs and AI for Analysis and Invoice generation feature",
+    technologies: "Node.js, Express.js, YOLO, Fast API, Gemini API",
+    imageURL: "inventory-management.png",
     githubURL: "https://github.com/zaidkhatri-dev/AI-Powered-Inventory-Management-System"
 },
 {
-    title: "Mock",
-    description: "Lorem ipsum dolor sit amet consectetur adipiscing elit quisque faucibus ex sapien vitae pellentesque sem.lorem5",
-    technologies: "React, Next, Express",
-    imageURL: "mockup.svg",
-    githubURL: "https://github.com/zaidkhatri-dev/AI-Powered-Inventory-Management-System"
+    title: "Event Display System",
+    description: "A website where teachers can add events, students can view and get notified via email",
+    technologies: "Node.js, Express.js, Gmail API, OAuth 2.0, EJS",
+    imageURL: "event.png",
+    githubURL: "https://github.com/zaidkhatri-dev/Event-Notification-System"
 },
 {
-    title: "Mock",
-    description: "Lorem ipsum dolor sit amet consectetur adipiscing elit quisque faucibus ex sapien vitae pellentesque sem.lorem5",
-    technologies: "React, Next, Express",
-    imageURL: "mockup.svg",
-    githubURL: "https://github.com/zaidkhatri-dev/AI-Powered-Inventory-Management-System"
+    title: "Live Voting Website",
+    description: "Users vote a project and the results graph is updated in real time (Used by 40+ users)",
+    technologies: "React.js, Express.js, Websockets",
+    imageURL: "live-voting.png",
+    githubURL: "https://github.com/zaidkhatri-dev/gdg-frontend"
 },
 {
-    title: "Mock",
-    description: "Lorem ipsum dolor sit amet consectetur adipiscing elit quisque faucibus ex sapien vitae pellentesque sem.lorem5",
-    technologies: "React, Next, Express",
-    imageURL: "mockup.svg",
-    githubURL: "https://github.com/zaidkhatri-dev/AI-Powered-Inventory-Management-System"
+    title: "Blogify",
+    description: "A blogging website where users can add, edit and read a blog and comment on it",
+    technologies: "Node.js, Express.js",
+    imageURL: "blog.png",
+    githubURL: "https://github.com/zaidkhatri-dev/Blogify"
 }] 
 
 const Projects = () => {

@@ -42,7 +42,7 @@ textarea:-webkit-autofill:active {
 .dark {
   --pbg: #08090a;
   --pfg: #f7f8f8;
-  --sbg: rgba(40, 40, 44, 54.9%);
+  --sbg: rgba(40, 40, 44, 100%);
   --sfg: #8a8f98;
   --bbg: #f7f8f8;
   --bfg: #08090a;
