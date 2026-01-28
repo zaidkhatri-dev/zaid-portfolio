@@ -4,21 +4,51 @@ import SendMsg from "../buttons/SendMsg";
 const ContactForm = () => {
   const [isSubmit, setIsSubmit] = useState<boolean>(false);
   const [isAnimate, setIsAnimate] = useState<boolean>(false);
+  const [errors, setErrors] = useState<string>("Your Message has been sent");
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const form = e.currentTarget;
 
     const data = new FormData(form);
-    console.log(data.get("fullname"), data.get("email"), data.get("message"));
 
-    setIsAnimate(true);
+    try {
+      const res = await fetch("/api/msgHandler", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          fullname: data.get("fullname"),
+          phoneNo: data.get("phoneNo"),
+          email: data.get("email"),
+          message: data.get("message"),
+        }),
+      });
 
-    setTimeout(() => {
-      setIsSubmit(true);
-      form.reset();
-    }, 550);
+      const result = await res.json();
+
+      if (!res.ok) {
+        throw new Error(result.err || "Something went wrong");
+      }
+
+      setIsAnimate(true);
+
+      setTimeout(() => {
+        setIsSubmit(true);
+        form.reset();
+      }, 550);
+
+    } catch (error) {
+      if (error instanceof Error) {
+        console.log(error.message)
+        setErrors(error.message);
+      } else {
+        console.log("error")
+        setErrors("Unexpected error occurred");
+      }
+    }
   };
 
   return (
@@ -29,7 +59,7 @@ const ContactForm = () => {
     >
       {isSubmit && (
         <div className="w-full h-full backdrop-blur-2xl bg-black/30 absolute inset-0 z-10 flex flex-col gap-2 justify-center items-center">
-          <p>Your Message has been sent</p>
+          <p>{errors}</p>
           <button
             onClick={() => {
               setIsSubmit(false);
@@ -37,7 +67,7 @@ const ContactForm = () => {
             }}
             className="flex text-[12px] md:text-sm items-center bg-bbg text-bfg px-4 py-2 rounded-xl cursor-pointer hover:opacity-80"
           >
-            Send More
+            Send Again
           </button>
         </div>
       )}
