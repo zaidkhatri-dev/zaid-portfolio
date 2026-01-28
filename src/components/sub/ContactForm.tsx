@@ -1,5 +1,6 @@
 import { useState } from "react";
 import SendMsg from "../buttons/SendMsg";
+import formInValidation from "../../utils/formInValidation";
 
 const ContactForm = () => {
   const [isSubmit, setIsSubmit] = useState<boolean>(false);
@@ -9,39 +10,39 @@ const ContactForm = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-     setIsAnimate(true);
+    setIsAnimate(true);
 
-      setTimeout(() => {
-        setIsSubmit(true);
-        form.reset();
-      }, 550);
+    setTimeout(() => {
+      setIsSubmit(true);
+      form.reset();
+    }, 550);
 
     const form = e.currentTarget;
 
-    const data = new FormData(form);
+    const formData = new FormData(form);
 
     try {
-      const res = await fetch("/api/msgHandler", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          fullname: data.get("fullname"),
-          phoneNo: data.get("phoneNo"),
-          email: data.get("email"),
-          message: data.get("message"),
-        }),
+      formInValidation({
+        fullname: formData.get("fullname") as string,
+        phoneNo: formData.get("phoneNo") as string,
+        email: formData.get("email") as string,
+        message: formData.get("message") as string,
       });
 
-      const result = await res.json();
+      formData.append("access_key", "c7316b91-c2f8-4e1e-9f90-f55c0dd016da");
 
-      if (!res.ok) {
-        throw new Error(result.err || "Something went wrong");
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+
+      const data = await response.json();
+
+      if (!data.success) {
+        throw new Error("Something went wrong");
       }
 
-      setResponse("Your Message has been sent")
-
+      setResponse("Your Message has been sent");
     } catch (error) {
       if (error instanceof Error) {
         setResponse(error.message);
@@ -59,18 +60,20 @@ const ContactForm = () => {
     >
       {isSubmit && (
         <div className="w-full h-full backdrop-blur-2xl bg-black/30 absolute inset-0 z-10 flex justify-center items-center">
-          {response && (<div className="flex flex-col gap-2 justify-center items-center">
-            <p>{response}</p>
-          <button
-            onClick={() => {
-              setIsSubmit(false);
-              setIsAnimate(false);
-            }}
-            className="flex text-[12px] md:text-sm items-center bg-bbg text-bfg px-4 py-2 rounded-xl cursor-pointer hover:opacity-80"
-          >
-            Send Again
-          </button>
-          </div>)}
+          {response && (
+            <div className="flex flex-col gap-2 justify-center items-center">
+              <p>{response}</p>
+              <button
+                onClick={() => {
+                  setIsSubmit(false);
+                  setIsAnimate(false);
+                }}
+                className="flex text-[12px] md:text-sm items-center bg-bbg text-bfg px-4 py-2 rounded-xl cursor-pointer hover:opacity-80"
+              >
+                Send Again
+              </button>
+            </div>
+          )}
         </div>
       )}
 
