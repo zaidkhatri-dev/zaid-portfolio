@@ -1,6 +1,7 @@
 import { useState } from "react";
 import SendMsg from "../buttons/SendMsg";
 import formInValidation from "../../utils/formInValidation";
+import { z } from "zod";
 
 const ContactForm = () => {
   const [isSubmit, setIsSubmit] = useState<boolean>(false);
@@ -9,6 +10,7 @@ const ContactForm = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const form = e.currentTarget;
 
     setIsAnimate(true);
 
@@ -16,8 +18,6 @@ const ContactForm = () => {
       setIsSubmit(true);
       form.reset();
     }, 550);
-
-    const form = e.currentTarget;
 
     const formData = new FormData(form);
 
@@ -44,10 +44,10 @@ const ContactForm = () => {
 
       setResponse("Your Message has been sent");
     } catch (error) {
-      if (error instanceof Error) {
-        setResponse(error.message);
+      if (error instanceof z.ZodError) {
+        setResponse(`${error.issues[0].message}`);
       } else {
-        setResponse("Unexpected error occurred");
+        setResponse("Failed to send Message");
       }
     }
   };

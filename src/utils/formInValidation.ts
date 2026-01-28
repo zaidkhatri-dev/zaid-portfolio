@@ -30,13 +30,7 @@ const msgSchema = z.object({
 type FormInput = z.infer<typeof msgSchema>;
 
 const formInValidation = (data: FormInput) => {
-  try {
-    msgSchema.parse(data);
-  } catch (error) {
-    if (error instanceof z.ZodError) {
-      throw new Error(`${error.issues[0].message}`);
-    }
-  }
+  msgSchema.parse(data);
 };
 
 export default formInValidation;
