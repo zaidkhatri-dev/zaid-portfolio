@@ -4,10 +4,17 @@ import SendMsg from "../buttons/SendMsg";
 const ContactForm = () => {
   const [isSubmit, setIsSubmit] = useState<boolean>(false);
   const [isAnimate, setIsAnimate] = useState<boolean>(false);
-  const [errors, setErrors] = useState<string>("Your Message has been sent");
+  const [response, setResponse] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+     setIsAnimate(true);
+
+      setTimeout(() => {
+        setIsSubmit(true);
+        form.reset();
+      }, 550);
 
     const form = e.currentTarget;
 
@@ -33,20 +40,13 @@ const ContactForm = () => {
         throw new Error(result.err || "Something went wrong");
       }
 
-      setIsAnimate(true);
-
-      setTimeout(() => {
-        setIsSubmit(true);
-        form.reset();
-      }, 550);
+      setResponse("Your Message has been sent")
 
     } catch (error) {
       if (error instanceof Error) {
-        console.log(error.message)
-        setErrors(error.message);
+        setResponse(error.message);
       } else {
-        console.log("error")
-        setErrors("Unexpected error occurred");
+        setResponse("Unexpected error occurred");
       }
     }
   };
@@ -59,7 +59,8 @@ const ContactForm = () => {
     >
       {isSubmit && (
         <div className="w-full h-full backdrop-blur-2xl bg-black/30 absolute inset-0 z-10 flex flex-col gap-2 justify-center items-center">
-          <p>{errors}</p>
+          {response && (<div>
+            <p>{response}</p>
           <button
             onClick={() => {
               setIsSubmit(false);
@@ -69,6 +70,7 @@ const ContactForm = () => {
           >
             Send Again
           </button>
+          </div>)}
         </div>
       )}
 
