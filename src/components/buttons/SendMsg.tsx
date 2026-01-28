@@ -10,7 +10,7 @@ const SendMsg = ({isAnimate}: SendMsgProps) => {
         animate={
           isAnimate ? { x: 80, rotate: [20, 40] } : { x: 0, rotate: 0 }
         }
-        transition={{ type: "spring", duration: 1 }}
+        transition={{ ease: "easeInOut", duration: 0.45 }}
       >
         <Send strokeWidth={1.5} size={22}></Send>
       </motion.div>

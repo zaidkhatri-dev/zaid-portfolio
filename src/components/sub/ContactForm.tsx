@@ -18,7 +18,7 @@ const ContactForm = () => {
     setTimeout(() => {
       setIsSubmit(true);
       form.reset();
-    }, 650);
+    }, 550);
   };
 
   return (
