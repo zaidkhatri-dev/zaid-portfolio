@@ -58,8 +58,8 @@ const ContactForm = () => {
       onSubmit={handleSubmit}
     >
       {isSubmit && (
-        <div className="w-full h-full backdrop-blur-2xl bg-black/30 absolute inset-0 z-10 flex flex-col gap-2 justify-center items-center">
-          {response && (<div>
+        <div className="w-full h-full backdrop-blur-2xl bg-black/30 absolute inset-0 z-10 flex justify-center items-center">
+          {response && (<div className="flex flex-col gap-2 justify-center items-center">
             <p>{response}</p>
           <button
             onClick={() => {
