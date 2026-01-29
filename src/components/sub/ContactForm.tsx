@@ -55,7 +55,6 @@ const ContactForm = () => {
   return (
     <form
       className="flex flex-col gap-6 text-sm md:text-[16px] relative z-0"
-      method="POST"
       onSubmit={handleSubmit}
     >
       {isSubmit && (
