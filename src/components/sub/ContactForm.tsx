@@ -55,7 +55,7 @@ const ContactForm = () => {
   return (
     <form
       className="flex flex-col gap-6 text-sm md:text-[16px] relative z-0"
-      action=""
+      method="POST"
       onSubmit={handleSubmit}
     >
       {isSubmit && (
@@ -68,7 +68,7 @@ const ContactForm = () => {
                   setIsSubmit(false);
                   setIsAnimate(false);
                 }}
-                className="flex text-[12px] md:text-sm items-center bg-bbg text-bfg px-4 py-2 rounded-xl cursor-pointer hover:opacity-80"
+                className="flex text-[12px] md:text-sm items-center bg-bbg text-bfg px-4 py-2 rounded-xl cursor-pointer hover:opacity-80 active:scale-92"
               >
                 Send Again
               </button>
@@ -91,7 +91,7 @@ const ContactForm = () => {
         </div>
 
         <div className="flex flex-col gap-2 h-full w-full">
-          <label htmlFor="phoneNo">Phone</label>
+          <label htmlFor="phoneNo">Phone *</label>
           <input
             type="text"
             id="phoneNo"

@@ -19,8 +19,7 @@ const msgSchema = z.object({
     .preprocess(
       phonePreprocess,
       z.string().min(7, "Invalid phone number").max(16, "Invalid phone number"),
-    )
-    .optional(),
+    ),
 
   email: z.email("Invalid email"),
 
