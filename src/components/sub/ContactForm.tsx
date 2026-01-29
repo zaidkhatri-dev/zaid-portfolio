@@ -29,6 +29,8 @@ const ContactForm = () => {
         message: formData.get("message") as string,
       });
 
+      setResponse(null);
+
       formData.append("access_key", "c7316b91-c2f8-4e1e-9f90-f55c0dd016da");
 
       const response = await fetch("https://api.web3forms.com/submit", {
@@ -36,9 +38,7 @@ const ContactForm = () => {
         body: formData,
       });
 
-      const data = await response.json();
-
-      if (!data.success) {
+      if (!response.ok) {
         throw new Error("Something went wrong");
       }
 
