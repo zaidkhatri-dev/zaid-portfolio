@@ -18,7 +18,7 @@ const Navbar = ({ sectionRefs }: { sectionRefs: React.RefObject<HTMLDivElement |
             setActiveSection(idx);
           }
         },
-        { threshold: 0.4 } // Trigger when 40% of the section is visible
+        { threshold: 0.5 }
       );
 
       if (ref.current) {
