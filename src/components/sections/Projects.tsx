@@ -30,9 +30,9 @@ const ProjectArr: ProjectCardProps[] = [{
     githubURL: "https://github.com/zaidkhatri-dev/Blogify"
 }] 
 
-const Projects = () => {
+const Projects = ({projectsRef}: {projectsRef: React.RefObject<HTMLDivElement | null>}) => {
     return (
-        <section id="Projects" className="mt-32">
+        <section ref={projectsRef} id="Projects" className="mt-32">
             <h2 className="text-[22px] md:text-[24px] mb-6">Projects</h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-stretch">
