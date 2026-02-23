@@ -18,7 +18,10 @@ const Navbar = ({ sectionRefs }: { sectionRefs: React.RefObject<HTMLDivElement |
             setActiveSection(idx);
           }
         },
-        { threshold: 0.5 }
+        { 
+          threshold: 0,
+          rootMargin: "-40% 0px -40% 0px"
+        }
       );
 
       if (ref.current) {
@@ -47,7 +50,7 @@ const Navbar = ({ sectionRefs }: { sectionRefs: React.RefObject<HTMLDivElement |
             onMouseEnter={() => window.innerWidth >= 768 && setHovered(idx)}
             onMouseLeave={() => setHovered(null)}
             href={`#${item}`}
-            className="relative z-10 text-center px-5 py-2"
+            className="relative z-10 text-center lg:px-5 lg:py-2 px-3.75 py-1.5"
           >
             {isHighlighted && (
               <motion.div
